@@ -3,5 +3,9 @@ Setup script which I've used after clean installation of Ubuntu to install commo
 
 To run the script, execute the following line in terminal:
 
-`sh ./ubuntu-setup.sh`
+`sudo sh ./ubuntu-setup.sh`
+
+or
+
+`sudo bash ./ubuntu-setup.sh`
 
