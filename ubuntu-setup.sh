@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cleanup() {
-    sudo apt-get -y update
+	sudo apt-get -y update
     sudo apt-get -y dist-upgrade
     sudo apt-get -y -f install
     sudo apt-get -y autoremove
@@ -15,128 +15,123 @@ sudo apt-get -y update
 sudo apt-get -y install apt-fast
 
 # req to install
-sudo apt-fast -y install aptitude cowsay curl dpkg
+sudo apt-fast -y install cowsay dpkg curl
 
 # mongodb package
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+sudo echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 
-# auto repos
+# repositories
+sudo add-apt-repository -y ppa:caffeine-developers/ppa
+sudo add-apt-repository -y ppa:peterlevi/ppa
+sudo add-apt-repository -y ppa:videolan/stable-daily
+sudo add-apt-repository -y ppa:otto-kesselgulasch/gimp
 sudo add-apt-repository -y ppa:cwchien/gradle
 sudo add-apt-repository -y ppa:git-core/ppa
 sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
 sudo add-apt-repository -y ppa:webupd8team/sublime-text-2
 sudo add-apt-repository -y ppa:webupd8team/java
-sudo apt-add-repository -y ppa:paolorotolo/android-studio
-sudo add-apt-repository -y ppa:linrunner/tlp
 sudo add-apt-repository -y ppa:me-davidsansome/clementine
 sudo add-apt-repository -y ppa:transmissionbt/ppa
 sudo add-apt-repository -y ppa:atareao/atareao
-sudo apt-add-repository -y ppa:damien-moore/codeblocks-stable
 sudo add-apt-repository -y multiverse
 sudo add-apt-repository -y ppa:ubuntu-desktop/ubuntu-make
 sudo apt-get -y install software-properties-common
 
 sudo apt-get update
 
-# codec
-sudo apt-get install -y ubuntu-restricted-extras libavcodec-extra ffmpeg x264 gstreamer0.10-ffmpeg libdvdread4
-sudo /usr/share/doc/libdvdread4/install-css.sh
-sudo apt-get -y install vlc browser-plugin-vlc
+# codecs
+sudo apt-get -y install ubuntu-restricted-extras libavcodec-extra ffmpeg x264 gstreamer0.10-ffmpeg libdvd-pkg
 
-# gimp
-sudo apt-get install -y gimp gimp-data gimp-plugin-registry gimp-data-extras
-
-# myweather
-sudo apt-get install -y my-weather-indicator
-
+#APPEARANCE
 # caffeine
-sudo apt-get install -y caffeine
-
+sudo apt-get -y install caffeine
+# myweather
+sudo apt-get -y install my-weather-indicator
 # variety
-sudo apt-get install -y variety
-
+sudo apt-get -y install variety
 # shutter
-sudo apt-get install -y shutter
+sudo apt-get -y install shutter
 
-# steam
-sudo apt-get install -y steam
-
-# synaptic
-sudo apt-get install -y synaptic
-
-# bleachbit
-sudo apt-get install -y bleachbit
-
-# gdebi
-sudo apt-get install -y gdebi
-
-# unity-tweak-tool
-sudo apt-get install -y unity-tweak-tool
-
-# ubuntu-make
-sudo apt-get install -y ubuntu-make
-
+#MEDIA
+# vlc
+sudo apt-get -y install vlc browser-plugin-vlc
 # clementine player
-sudo apt-get install -y clementine
+sudo apt-get -y install clementine
+# gimp
+sudo apt-get -y install gimp gimp-data gimp-plugin-registry gimp-data-extras
 
-# java
-sudo apt-get -y install oracle-java8-installer
-
-# export java variables
-echo "export JAVA_HOME=/usr/lib/jvm/java-8-oracle" >> ~/.profile
-
-# android
-sudo apt-get -y install android-studio
-
-# codeblocks
-sudo apt-get -y install codeblocks
-
-# rdp
-sudo apt-get -y install remmina remmina-plugin-rdp
-
-# tlp
-sudo apt-get -y install tlp tlp-rdw
-sudo tlp start
-
-# virtualbox
-sudo apt-get -y install virtualbox
-
-# build systems
-sudo apt-get -y install maven
-sudo apt-get -y install gradle
-
+#INTERNET
+# google chrome for amd64
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i --force-depends google-chrome-stable_current_amd64.deb
+sudo apt-get -y -f install
+# gnome gdrive integration feature
+sudo apt-get -y install gnome-control-center gnome-online-accounts
+# skype
+sudo apt-get -y install skype
+# correct theme dependencies for skype 64bit
+sudo apt-get -y install gtk2-engines-murrine:i386 gtk2-engines-pixbuf:i386
 # transmisson
 sudo apt-get -y install transmission minissdpd natpmp-utils
 
-# skype
-sudo apt-get -y install skype
+#PACKAGES
+# synaptic
+sudo apt-get -y install synaptic
+# gdebi
+sudo apt-get -y install gdebi
 
-# sublime2
-sudo apt-get -y install sublime-text
-
-# git
-sudo apt-get -y install git
-sudo apt-get -y install gitk
-sudo apt-get -y install git-gui
-
-# google chrome
-sudo aptitude -y install google-chrome-stable
-sudo rm /etc/apt/sources.list.d/google-chrome.list
-
+#SYSTEM
 # grub customizer
 sudo apt-get -y install grub-customizer
+# bleachbit
+sudo apt-get -y install bleachbit
+# unity-tweak-tool
+sudo apt-get -y install unity-tweak-tool
+# rdp
+sudo apt-get -y install remmina remmina-plugin-rdp
+# virtualbox
+sudo apt-get -y install virtualbox
 
+#DEVELOPER TOOLS
 # mongodb latest stable version
-sudo apt-get -y install mongodb-org
-
+# --allow-unauthenticated only for Ubuntu 16.04
+sudo apt-get install -y --allow-unauthenticated mongodb-org
+# sublime2
+sudo apt-get -y install sublime-text
+# bless
+sudo apt-get -y install bless
+# ubuntu-make
+sudo apt-get -y install ubuntu-make
+# git
+sudo apt-get -y install git
+# java
+sudo apt-get -y install oracle-java8-installer
+# setting Java environment variables
+sudo apt-get -y install oracle-java8-set-default
+# nodejs
+umake nodejs
+# scala
+umake scala
+# android studio && android sdk && android ndk
+umake android
+# idea-ultimate
+umake ide idea-ultimate
+# clion
+umake ide clion
 # tomcat7
 sudo apt-get -y install tomcat7
-
+# build systems
+sudo apt-get -y install maven
+sudo apt-get -y install gradle
+# npm
+sudo apt-get -y install npm
 # grunt, gulp and bower
 sudo npm install -g grunt-cli bower gulp
-
-# jekyll
+# ruby, gem, jekyll
+sudo apt-get -y install ruby2.3
+sudo apt-get -y install ruby2.3-dev
+sudo apt-get -y install gem
 sudo gem install jekyll
 
 cleanup
