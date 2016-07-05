@@ -114,7 +114,7 @@ umake nodejs
 # scala
 umake scala
 # android studio && android sdk && android ndk
-umake android
+umake android --accept-license
 # idea-ultimate
 umake ide idea-ultimate
 # clion
