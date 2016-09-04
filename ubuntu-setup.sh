@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cleanup() {
-	sudo apt-get -y update
+    sudo apt-get -y update
     sudo apt-get -y dist-upgrade
     sudo apt-get -y -f install
     sudo apt-get -y autoremove
@@ -23,7 +23,6 @@ sudo echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multive
 
 # repositories
 sudo add-apt-repository -y ppa:caffeine-developers/ppa
-sudo add-apt-repository -y ppa:peterlevi/ppa
 sudo add-apt-repository -y ppa:videolan/stable-daily
 sudo add-apt-repository -y ppa:otto-kesselgulasch/gimp
 sudo add-apt-repository -y ppa:cwchien/gradle
@@ -48,8 +47,6 @@ sudo apt-get -y install ubuntu-restricted-extras libavcodec-extra ffmpeg x264 gs
 sudo apt-get -y install caffeine
 # myweather
 sudo apt-get -y install my-weather-indicator
-# variety
-sudo apt-get -y install variety
 # shutter
 sudo apt-get -y install shutter
 
@@ -58,6 +55,8 @@ sudo apt-get -y install shutter
 sudo apt-get -y install vlc browser-plugin-vlc
 # clementine player
 sudo apt-get -y install clementine
+# gMTP
+sudo apt-get -y install gmtp
 # gimp
 sudo apt-get -y install gimp gimp-data gimp-plugin-registry gimp-data-extras
 
@@ -98,7 +97,7 @@ sudo apt-get -y install virtualbox
 # --allow-unauthenticated only for Ubuntu 16.04
 sudo apt-get install -y --allow-unauthenticated mongodb-org
 # sublime2
-sudo apt-get -y install sublime-text
+sudo apt-get -y install sublime-text    
 # bless
 sudo apt-get -y install bless
 # ubuntu-make
@@ -109,8 +108,6 @@ sudo apt-get -y install git
 sudo apt-get -y install oracle-java8-installer
 # setting Java environment variables
 sudo apt-get -y install oracle-java8-set-default
-# nodejs
-umake nodejs
 # scala
 umake scala
 # android studio && android sdk && android ndk
@@ -124,15 +121,6 @@ sudo apt-get -y install tomcat7
 # build systems
 sudo apt-get -y install maven
 sudo apt-get -y install gradle
-# npm
-sudo apt-get -y install npm
-# grunt, gulp and bower
-sudo npm install -g grunt-cli bower gulp
-# ruby, gem, jekyll
-sudo apt-get -y install ruby2.3
-sudo apt-get -y install ruby2.3-dev
-sudo apt-get -y install gem
-sudo gem install jekyll
 
 cleanup
 
