@@ -122,6 +122,21 @@ sudo apt-get -y install tomcat7
 sudo apt-get -y install maven
 sudo apt-get -y install gradle
 
+#Front-end
+#linuxbrew
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+##dependencies
+sudo apt-get install build-essential curl file git python-setuptools
+echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >>~/.profile
+echo 'export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"' >>~/.profile
+echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >>~/.profile
+PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+brew install node
+npm install -g typescript
+npm install -g @angular/cli
+
+
+
 cleanup
 
 cowsay "FINISHED"
